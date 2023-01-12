@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { Field, ContaierField, ContainerForm, BtnDisabled } from './ContactForm.styled';
+import {
+  FieldItem,
+  ContaierField,
+  ContainerForm,
+  BtnDisabled,
+} from './ContactForm.styled';
 
 export function Form({ onData }) {
   const [name, setName] = useState('');
@@ -33,7 +38,7 @@ export function Form({ onData }) {
     <ContainerForm onSubmit={handleSubmit}>
       <ContaierField>
         Name
-        <Field
+        <FieldItem
           type="text"
           name="name"
           value={name}
@@ -46,7 +51,7 @@ export function Form({ onData }) {
       </ContaierField>
       <ContaierField>
         Number
-        <Field
+        <FieldItem
           type="tel"
           name="number"
           value={number}

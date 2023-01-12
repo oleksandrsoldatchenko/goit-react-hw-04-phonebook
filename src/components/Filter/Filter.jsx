@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import { Container, Field } from './Filter.styled';
+import { FilterContainer, Field } from './Filter.styled';
 
 export const Filter = ({ value, onChangeFilter }) => {
   return (
-    <Container>
+    <FilterContainer>
       Find contacts by name
       <Field
         type="text"
@@ -11,7 +11,7 @@ export const Filter = ({ value, onChangeFilter }) => {
         onChange={onChangeFilter}
         placeholder=" enter contact"
       />
-    </Container>
+    </FilterContainer>
   );
 };
 

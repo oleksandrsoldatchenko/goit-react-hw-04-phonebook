@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 
-import { Form } from './components/ContactForm/ContactForm';
-import { ContactList } from './components/ContactList/ContactList';
-import { Filter } from './components/Filter/Filter';
+import { Form } from '../ContactForm/ContactForm';
+import { ContactList } from '../ContactList/ContactList';
+import { Filter } from '../Filter/Filter';
+
+import { Container } from './App.styled';
 
 import useLocalStorage from 'components/LocalStorage/useLocalStorage';
-
-import styled from 'styled-components';
 
 export function App() {
   const [contacts, setContacts] = useLocalStorage('contacts', []);
@@ -56,7 +56,3 @@ export function App() {
     </Container>
   );
 }
-
-const Container = styled.div`
-  padding: 15px;
-`;
