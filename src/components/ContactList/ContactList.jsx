@@ -1,32 +1,23 @@
 import PropTypes from 'prop-types';
+import { ContactContainer, ContactEl, ContactBtn } from './ContactList.styled';
 
-import ContactItem from '../ContactItem/ContactItem';
-import styles from './ContactList.module.scss';
-
-// Приймає всі наявні контакти, складає в єдиний ul і підключає метод для можливості видалення контакту
-const ContactList = ({ contacts, onDeleteContact }) => {
+export const ContactList = ({ contacts, onDeleteContact }) => {
   return (
-    <ul className={styles.list}>
-      {contacts.map(contact => (
-        <ContactItem
-          contact={contact}
-          onDeleteContact={onDeleteContact}
-          key={contact.id}
-        />
+    <ContactContainer>
+      {contacts.map(({ id, name, number }) => (
+        <ContactEl key={id}>
+          <span>{name}: </span>
+          <span>{number}</span>
+          <ContactBtn type="button" onClick={() => onDeleteContact(id)}>
+            Delete
+          </ContactBtn>
+        </ContactEl>
       ))}
-    </ul>
+    </ContactContainer>
   );
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
+  contacts: PropTypes.array.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
-
-export default ContactList;
